@@ -1,29 +1,37 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { Stack } from "expo-router";
+import { SessionProvider } from "../contexts/auth";
+import { SplashScreenController } from "../components/SplashScreenController";
+import { useSession } from "../contexts/auth";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+export default function Root() {
+  return (
+    <SessionProvider>
+      <SplashScreenController />
+      <RootNavigator />
+    </SessionProvider>
+  );
+}
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
+function RootNavigator() {
+  const { session } = useSession();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        navigationBarColor: "#121417",
+      }}>
+      <Stack.Screen
+        name='(app)'
+        options={{ headerShown: false }}
+        redirect={!session}
+      />
+      <Stack.Screen
+        name='(auth)'
+        options={{ headerShown: false }}
+        redirect={!!session}
+      />
+      <Stack.Screen name='+not-found' />
+    </Stack>
   );
 }
