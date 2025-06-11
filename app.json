@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "sehat-expo",
-    "slug": "sehat-expo",
+    "slug": "sehat",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -18,7 +18,11 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "navigationBarColor": "#121417"
+      "navigationBarColor": "#121417",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -40,6 +44,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a38f483e-d356-4c12-b8dd-9a6d25405204"
+      }
+    },
+    "owner": "arnab.d.kumar"
   }
 }
