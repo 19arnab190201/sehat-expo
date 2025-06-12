@@ -60,7 +60,8 @@ export default function Signup() {
     } catch (error: any) {
       Alert.alert(
         "Error",
-        error.response?.data?.message || "Failed to sign up"
+        error.response?.data?.message ||
+          "iiiiii Failed to sign up" + JSON.stringify(error)
       );
     } finally {
       setLoading(false);
