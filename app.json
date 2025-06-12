@@ -7,10 +7,14 @@
     "icon": "./assets/images/icon.png",
     "scheme": "sehatexpo",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
       "supportsTablet": true,
-      "backgroundColor": "#121417"
+      "backgroundColor": "#121417",
+      "bundleIdentifier": "com.sehat",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -22,7 +26,8 @@
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO"
-      ]
+      ],
+      "package": "com.sehat"
     },
     "web": {
       "bundler": "metro",
