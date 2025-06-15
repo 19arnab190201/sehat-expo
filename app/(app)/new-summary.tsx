@@ -273,6 +273,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     minHeight: 100,
     textAlignVertical: "top",
+    color: "#121212",
   },
   fieldContainer: {
     flexDirection: "row",
@@ -286,6 +287,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 12,
     marginRight: 8,
+    color: "#121212",
   },
   removeButton: {
     padding: 8,
