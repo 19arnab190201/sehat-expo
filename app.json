@@ -13,7 +13,10 @@
       "backgroundColor": "#121417",
       "bundleIdentifier": "com.sehat",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
       }
     },
     "android": {
@@ -27,7 +30,8 @@
         "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.sehat"
+      "package": "com.sehat",
+      "usesCleartextTraffic": true
     },
     "web": {
       "bundler": "metro",
